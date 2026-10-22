@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Mistura de Reagentes Químicos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Simulador de Mistura de Reagentes Químicos</h1>
+
+        <div class="selecao-reagentes">
+            <label for="reagente1">Reagente 1:</label>
+            <select id="reagente1">
+                <option value="" selected>-- Escolha um reagente --</option>
+                <option value="agua_sanitaria">Água Sanitária</option>
+                <option value="alcool etanol">Álcool</option>
+                <option value="agua_oxigenada">Água Oxigenada</option>
+            </select>
+
+            <label for="reagente2">Reagente 2:</label>
+            <select id="reagente2">
+                <option value="" selected>-- Escolha um reagente --</option>
+                <option value="agua_sanitaria">Água Sanitária</option>
+                <option value="vinagre">Vinagre</option>
+                <option value="alcool etanol">Álcool</option>
+                <option value="amonia">Amônia</option>
+                <option value="limpa vidros">Limpa vidros</option>
+            </select>
+
+            <button id="btn-misturar">Misturar</button>
+
+            <div class="tap" id="torneira" role="img" aria-label="Torneira animada">
+                <svg class="torneira-desenho" viewBox="0 0 160 100" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="metalTorneira" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#f8fbff"/>
+                            <stop offset="35%" stop-color="#aab7c3"/>
+                            <stop offset="65%" stop-color="#e7edf2"/>
+                            <stop offset="100%" stop-color="#687784"/>
+                        </linearGradient>
+                    </defs>
+                    <!-- Base fixada à parede -->
+                    <rect x="18" y="34" width="25" height="43" rx="5" fill="url(#metalTorneira)" stroke="#53616c" stroke-width="3"/>
+                    <!-- Corpo e bico da torneira -->
+                    <path d="M30 43 H78 Q91 43 91 56 V64 H128 Q143 64 143 77 V82 H121 V79 H103 V70 H75 V61 Q75 57 70 57 H30 Z" fill="url(#metalTorneira)" stroke="#53616c" stroke-width="3" stroke-linejoin="round"/>
+                    <path d="M112 80 H143" stroke="#53616c" stroke-width="4" stroke-linecap="round"/>
+                    <!-- Eixo e alavanca móvel -->
+                    <circle cx="56" cy="38" r="9" fill="#dce4eb" stroke="#53616c" stroke-width="3"/>
+                    <g class="alavanca-torneira">
+                        <path d="M56 38 L56 17" stroke="#53616c" stroke-width="7" stroke-linecap="round"/>
+                        <path d="M43 16 H69" stroke="#53616c" stroke-width="8" stroke-linecap="round"/>
+                        <path d="M45 13 H67" stroke="#f8fbff" stroke-width="2" stroke-linecap="round"/>
+                    </g>
+                </svg>
+                <div class="water-stream" id="water-stream"></div>
+            </div>
+
+            <div class="beaker">
+                <div class="beaker-top"></div>
+                <div class="beaker-content">
+                    <div class="liquid" id="liquid"></div>
+                    <div class="bubbles" id="bubbles"></div>
+                    <div class="graduation-marks">
+                        <div class="graduation-mark">100mL</div>
+                        <div class="graduation-mark">75mL</div>
+                        <div class="graduation-mark">50mL</div>
+                        <div class="graduation-mark">25mL</div>
+                        <div class="graduation-mark">0mL</div>
+                    </div>
+                </div>
+                <div class="beaker-bottom"></div>
+            </div>
+        </div>
+
+        <div class="visualizacao">
+            <div id="animacao-reagentes"></div>
+        </div>
+
+        <div id="resultado"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
